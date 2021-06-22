@@ -23,7 +23,7 @@ header {
 }
 
 header .logo {
-    max-height: 30px;
+    max-height: 40px;
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ header .logo {
     color: #0088A9;
 }
 
-button {
+header button {
     padding: 9px 25px;
     background-color: rgba(92, 128, 188, 1);
     border: none;
@@ -53,6 +53,6 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+header button:hover {
     background-color: rgba(92, 128, 188, 0.8);
 }
