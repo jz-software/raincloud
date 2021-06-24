@@ -1,0 +1,21 @@
+.DayBlock {
+    display: flex;
+    color: #cdd1c4;
+    border-bottom: 1px #808080 solid;
+    padding: 10px 0px;
+}
+
+.DayBlock .left {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DayBlock .right {
+    width: 70%;
+}
+
+.DayBlock .left i {
+    font-size: 32px;
+}

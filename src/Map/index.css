@@ -3,11 +3,21 @@
     display: flex;
 }
 
+.mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl-attrib-inner a, .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl .mapboxgl-ctrl-attrib {
+    background-color: transparent;
+}
+
+.mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl, .mapboxgl-ctrl-logo {
+    background-color: transparent;
+}
+
 .map-container {
     height: inherit;
-    width: 50%;
+    width: 65%;
 }
 
 .side-container {
-    width: 50%;
+    width: 35%;
+    padding: 0px 15px;
+    overflow-y: auto;
 }

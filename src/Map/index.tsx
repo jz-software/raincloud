@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import './index.css';
+import DayBlock from './DayBlock';
 
 interface Props {
     coordinates: [number, number];
+    data: any;
 }
 
 interface customWindow extends Window {
@@ -10,7 +12,7 @@ interface customWindow extends Window {
   }
 declare const window: customWindow;
 
-const Map: React.FC<Props> = ({ coordinates }) => {
+const Map: React.FC<Props> = ({ coordinates, data }) => {
     const mapContainer = useRef(null);
     const map = useRef<any>(null);
     const mapboxgl = window.mapboxgl;
@@ -33,7 +35,11 @@ const Map: React.FC<Props> = ({ coordinates }) => {
         <div className="Map">
             <div ref={mapContainer} className="map-container" />
             <div className="side-container">
-                <p>test</p>
+                {data.map((e: any) => (
+                    <>
+                    <DayBlock DayData={e} />
+                    </>
+                ))}
             </div>
         </div>
     )
