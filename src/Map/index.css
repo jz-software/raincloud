@@ -1,3 +1,13 @@
+.Map {
+    height: 55vh;
+    display: flex;
+}
+
 .map-container {
-    height: 60vh;
+    height: inherit;
+    width: 50%;
+}
+
+.side-container {
+    width: 50%;
 }

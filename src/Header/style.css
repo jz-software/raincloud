@@ -20,6 +20,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    height: 15vh;
 }
 
 header .logo {

@@ -30,10 +30,12 @@ const Map: React.FC<Props> = ({ coordinates }) => {
         map.current?.flyTo({ center: coordinates, zoom: 9 });
     }, [coordinates])
     return (
-        <>
-        <div ref={mapContainer} className="map-container" />
-        <h1 onClick={() => { map.current?.flyTo({ center: coordinates, zoom: 8 }); }}>sus</h1>
-        </>
+        <div className="Map">
+            <div ref={mapContainer} className="map-container" />
+            <div className="side-container">
+                <p>test</p>
+            </div>
+        </div>
     )
 }
 
