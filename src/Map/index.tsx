@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import './index.css';
 import DayBlock from './DayBlock';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 interface Props {
     coordinates: [number, number];
     data: any;
+    isLoading: boolean;
 }
 
 interface customWindow extends Window {
@@ -12,7 +14,7 @@ interface customWindow extends Window {
   }
 declare const window: customWindow;
 
-const Map: React.FC<Props> = ({ coordinates, data }) => {
+const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
     const mapContainer = useRef(null);
     const map = useRef<any>(null);
     const mapboxgl = window.mapboxgl;
@@ -35,11 +37,20 @@ const Map: React.FC<Props> = ({ coordinates, data }) => {
         <div className="Map">
             <div ref={mapContainer} className="map-container" />
             <div className="side-container">
-                {data.map((e: any) => (
-                    <>
-                    <DayBlock DayData={e} />
-                    </>
-                ))}
+                <div className={`${isLoading ? 'hide' : 'show'}`}>
+                    {data.map((e: any) => (
+                        <>
+                        <DayBlock DayData={e} />
+                        </>
+                    ))}
+                </div>
+                <div className={`loading-div ${isLoading ? 'show' : 'hide'}`}>
+                    <SkeletonTheme color="#cdd1c4" highlightColor="#ffffff">
+                    <p style={{ fontSize: 30, lineHeight: 1.5 }}>
+                        <Skeleton count={5} />
+                    </p>
+                    </SkeletonTheme>
+                </div>
             </div>
         </div>
     )
