@@ -23,7 +23,7 @@ const ExtendedBlock: React.FC<Props> = ({ show, info, onBackClick }) => {
             <p><i className="fas fa-wind" /> Wind: {info.wind_speed}m/s</p>
             <div className="hourly-blocks">
                 {info.hourly !== undefined && (info.hourly.map((e: any) => (
-                    <HorlyBlock info={e} />
+                    <HorlyBlock info={e} key={e.dt.toString()} />
                 )))}
             </div>
         </div>

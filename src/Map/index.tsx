@@ -34,7 +34,7 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
         marker.current = new mapboxgl.Marker();
         marker.current.setLngLat([0, 0]);
         marker.current.addTo(map.current);
-    }, [])
+    }, [mapboxgl])
     useEffect(() => {
         if(marker.current !== null) {
             marker.current.setLngLat(coordinates);
@@ -50,9 +50,7 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
             <div className="side-container">
                 <div className={`${isLoading ? 'hide' : 'show'} ${showExtended ? 'hide' : 'show'}`}>
                     {data.map((e: any) => (
-                        <>
-                        <DayBlock DayData={e} onClickEvent={() => {setShowExtended(true); setShowExtendedInfo(e)}} />
-                        </>
+                        <DayBlock DayData={e} onClickEvent={() => {setShowExtended(true); setShowExtendedInfo(e)}} key={e.dt.toString()} />
                     ))}
                 </div>
                 <div className={`loading-div ${isLoading ? 'show' : 'hide'}`}>

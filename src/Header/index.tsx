@@ -7,11 +7,10 @@ const Header = () => {
             <img className="logo" src={logo} alt="logo" />
             <nav>
                 <ul className="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="https://www.jz-software.com/">Home</a></li>
                 </ul>
             </nav>
-            <a className="cta" href="#"><button>Contact</button></a>
+            <a className="cta" href="mailto:info@jz-software.com"><button>Contact</button></a>
         </header>
     )
 }
