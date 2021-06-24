@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import './index.css';
 import DayBlock from './DayBlock';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import ExtendedBlock from "./ExtendedBlock";
 
 interface Props {
     coordinates: [number, number];
@@ -33,14 +34,16 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
     useEffect(() => {
         map.current?.flyTo({ center: coordinates, zoom: 9 });
     }, [coordinates])
+    const [showExtended, setShowExtended] = useState(false);
+    const [extendedInfo, setShowExtendedInfo] = useState();
     return (
         <div className="Map">
             <div ref={mapContainer} className="map-container" />
             <div className="side-container">
-                <div className={`${isLoading ? 'hide' : 'show'}`}>
+                <div className={`${isLoading ? 'hide' : 'show'} ${showExtended ? 'hide' : 'show'}`}>
                     {data.map((e: any) => (
                         <>
-                        <DayBlock DayData={e} />
+                        <DayBlock DayData={e} onClickEvent={() => {setShowExtended(true); setShowExtendedInfo(e)}} />
                         </>
                     ))}
                 </div>
@@ -51,6 +54,9 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
                     </p>
                     </SkeletonTheme>
                 </div>
+                {extendedInfo !== undefined && (
+                    <ExtendedBlock show={showExtended} info={extendedInfo} onBackClick={() => setShowExtended(false)} />
+                )}
             </div>
         </div>
     )

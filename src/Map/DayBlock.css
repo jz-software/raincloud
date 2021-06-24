@@ -19,3 +19,7 @@
 .DayBlock .left i {
     font-size: 32px;
 }
+
+.DayBlock h3, .DayBlock i {
+    cursor: pointer;
+}

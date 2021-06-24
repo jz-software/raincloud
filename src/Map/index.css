@@ -25,3 +25,16 @@
 .hide {
     display: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .Map {
+        display: block;
+    }
+    .map-container {
+        width: 100%;
+    }
+    .side-container {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
