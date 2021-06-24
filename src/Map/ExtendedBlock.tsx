@@ -1,4 +1,5 @@
 import './ExtendedBlock.css';
+import HorlyBlock from './HorlyBlock';
 
 interface Props {
     show: boolean;
@@ -20,8 +21,14 @@ const ExtendedBlock: React.FC<Props> = ({ show, info, onBackClick }) => {
                 <i className="fas fa-moon" /> Sunset: {formatTimestamp(info.sunset)}
             </p>
             <p><i className="fas fa-wind" /> Wind: {info.wind_speed}m/s</p>
+            <div className="hourly-blocks">
+                {info.hourly !== undefined && (info.hourly.map((e: any) => (
+                    <HorlyBlock info={e} />
+                )))}
+            </div>
         </div>
     )
 }
 
 export default ExtendedBlock;
+export { formatTimestamp };

@@ -11,3 +11,9 @@
     border-bottom: 1px solid grey;
     width: 100%;
 }
+
+.ExtendedBlock .hourly-blocks {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 20px;
+}

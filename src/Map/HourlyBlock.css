@@ -1,0 +1,19 @@
+.HourlyBlock {
+    background-color: #4d5061;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.HourlyBlock div {
+    text-align: center;
+}
+
+.HourlyBlock .weather-icon {
+    font-size: 32px;
+}
+
+.HourlyBlock p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

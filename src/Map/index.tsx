@@ -32,6 +32,7 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
         map.current = new mapboxgl.Map(opts);
     }, [])
     useEffect(() => {
+        setShowExtended(false);
         map.current?.flyTo({ center: coordinates, zoom: 9 });
     }, [coordinates])
     const [showExtended, setShowExtended] = useState(false);
