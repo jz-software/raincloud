@@ -19,7 +19,8 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
     const mapContainer = useRef(null);
     const map = useRef<any>(null);
     const mapboxgl = window.mapboxgl;
-    
+    const marker = useRef<any>(null);
+
     useEffect(() => {
         if(map.current) return;
         mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
@@ -30,8 +31,14 @@ const Map: React.FC<Props> = ({ coordinates, data, isLoading }) => {
             boxZoom: true
         }
         map.current = new mapboxgl.Map(opts);
+        marker.current = new mapboxgl.Marker();
+        marker.current.setLngLat([0, 0]);
+        marker.current.addTo(map.current);
     }, [])
     useEffect(() => {
+        if(marker.current !== null) {
+            marker.current.setLngLat(coordinates);
+        }
         setShowExtended(false);
         map.current?.flyTo({ center: coordinates, zoom: 9 });
     }, [coordinates])
