@@ -1,10 +1,14 @@
 import './index.css';
 import SearchBar from "./SearchBar";
 
-const Search = () => {
+interface Props {
+    onSearch: (query: string) => void;
+}
+
+const Search: React.FC<Props> = ({ onSearch }) => {
     return (
         <div className="Search">
-            <SearchBar />
+            <SearchBar onSearch={onSearch}  />
         </div>
     )
 }
