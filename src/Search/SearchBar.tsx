@@ -16,9 +16,11 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
   }
   const search = (toSearchQuery: string) => {
     onSearch(toSearchQuery);
-    const shifted = recentlySearched.length >= 3 ? recentlySearched.slice(0, -1) : recentlySearched;
-    setRecentlySearched([toSearchQuery, ...shifted]);
-    window.localStorage.setItem('raincloud-recently-searched', JSON.stringify([toSearchQuery, ...shifted]));
+    if(!recentlySearched.includes(toSearchQuery)) {
+      const shifted = recentlySearched.length >= 3 ? recentlySearched.slice(0, -1) : recentlySearched;
+      setRecentlySearched([toSearchQuery, ...shifted]);
+      window.localStorage.setItem('raincloud-recently-searched', JSON.stringify([toSearchQuery, ...shifted]));
+    }
   }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
