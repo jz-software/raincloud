@@ -32,6 +32,7 @@
     }
     .map-container {
         width: 100%;
+        pointer-events: none;
     }
     .side-container {
         margin-top: 10px;
