@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import RecentlySearched from './RecentlySearched';
 import './SearchBar.css';
 
 interface Props {
@@ -21,6 +22,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
         <input type="text" placeholder="Search.." name="search" value={query} onChange={onChange} />
         <button type="submit"><i className="fas fa-arrow-right"></i></button>
       </div>
+      <RecentlySearched />
     </form>
   )
 }

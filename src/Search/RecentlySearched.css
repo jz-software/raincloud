@@ -1,0 +1,17 @@
+.RecentlySearched {
+    display: flex;
+}
+
+.RecentlySearched p {
+    margin: 3px;
+    background-color: #4d5061;
+    height: fit-content;
+    padding: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.RecentlySearched p:hover {
+    color: #c5c5c5;
+}
